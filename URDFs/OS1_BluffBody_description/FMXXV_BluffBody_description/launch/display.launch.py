@@ -6,11 +6,11 @@ import os
 from launch_ros.descriptions import ParameterValue
 
 def generate_launch_description():
-    pkg_share = launch_ros.substitutions.FindPackageShare(package='OS1_BluffBody_description').find('OS1_BluffBody_description')
-    default_model_path = os.path.join(pkg_share, 'urdf/OS1_BluffBody.xacro')
+    pkg_share = launch_ros.substitutions.FindPackageShare(package='FMXXV_BluffBody_description').find('FMXXV_BluffBody_description')
+    default_model_path = os.path.join(pkg_share, 'urdf/FMXXV_BluffBody.xacro')
     default_rviz_config_path = os.path.join(pkg_share, 'config/display.rviz')
     world_path = os.path.join(pkg_share, 'worlds/room.sdf')
-    # sdf_path = os.path.join(pkg_share, 'models/urdf/OS1_BluffBody/model.sdf')
+    # sdf_path = os.path.join(pkg_share, 'models/urdf/FMXXV_BluffBody/model.sdf')
     use_sim_time = LaunchConfiguration('use_sim_time')
     robot_state_publisher_node = launch_ros.actions.Node(
         package='robot_state_publisher',
@@ -35,7 +35,7 @@ def generate_launch_description():
         condition=IfCondition(use_sim_time),
         package='gazebo_ros',
         executable='spawn_entity.py',
-        arguments=['-entity', 'OS1_BluffBody', '-topic', 'robot_description'],
+        arguments=['-entity', 'FMXXV_BluffBody', '-topic', 'robot_description'],
         parameters=[{'use_sim_time': use_sim_time}],
         output='screen'
     )

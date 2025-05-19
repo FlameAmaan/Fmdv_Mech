@@ -5,8 +5,8 @@ import launch_ros
 from launch_ros.descriptions import ParameterValue
 
 def generate_launch_description():
-    pkg_share = launch_ros.substitutions.FindPackageShare(package='OS1_BluffBody_description').find('OS1_BluffBody_description')
-    default_model_path = os.path.join(pkg_share, 'urdf/OS1_BluffBody.xacro')
+    pkg_share = launch_ros.substitutions.FindPackageShare(package='FMXXV_BluffBody_description').find('FMXXV_BluffBody_description')
+    default_model_path = os.path.join(pkg_share, 'urdf/FMXXV_BluffBody.xacro')
     default_rviz_config_path = os.path.join(pkg_share, 'config/display.rviz')
     use_sim_time = LaunchConfiguration('use_sim_time')
 

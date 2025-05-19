@@ -1,0 +1,39 @@
+<?xml version="1.0" ?>
+<robot name="FMXXV_BluffBody" xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+<xacro:macro name="FMXXV_BluffBody" params="prefix">
+
+<xacro:include filename="$(find FMXXV_BluffBody_description)/urdf/materials.xacro" />
+<xacro:include filename="$(find FMXXV_BluffBody_description)/urdf/FMXXV_BluffBody.trans" />
+<xacro:include filename="$(find FMXXV_BluffBody_description)/urdf/FMXXV_BluffBody.gazebo" />
+<link name="${prefix}base_link"/>
+
+<link name="${prefix}Lidar">
+  <inertial>
+    <origin xyz="-0.05413507733047085 -3.072842307147993e-06 -2.7325592262261722e-05" rpy="0 0 0"/>
+    <mass value="14.625561866285365"/>
+    <inertia ixx="0.073266" iyy="0.043753" izz="0.043759" ixy="2e-06" iyz="0.0" ixz="9e-06"/>
+  </inertial>
+  <visual>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://FMXXV_BluffBody_description/meshes/Lidar.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="FMXXV_BluffBody_color2"/>
+  </visual>
+  <collision>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://FMXXV_BluffBody_description/meshes/Lidar.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<joint name="${prefix}Rigid 1" type="fixed">
+  <origin xyz="0.872829 -0.0 1.197727" rpy="0 0 0"/>
+  <parent link="${prefix}base_link"/>
+  <child link="${prefix}Lidar"/>
+</joint>
+
+</xacro:macro>
+</robot>

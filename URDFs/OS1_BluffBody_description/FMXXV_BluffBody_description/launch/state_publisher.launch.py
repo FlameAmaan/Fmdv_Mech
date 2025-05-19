@@ -5,9 +5,9 @@ import launch_ros
 from launch_ros.descriptions import ParameterValue
 
 def generate_launch_description():
-    pkg_share = launch_ros.substitutions.FindPackageShare(package='OS1_BluffBody_description').find('OS1_BluffBody_description')
+    pkg_share = launch_ros.substitutions.FindPackageShare(package='FMXXV_BluffBody_description').find('FMXXV_BluffBody_description')
     use_sim_time = LaunchConfiguration('use_sim_time')
-    default_model_path = os.path.join(pkg_share, 'urdf/OS1_BluffBody.xacro')
+    default_model_path = os.path.join(pkg_share, 'urdf/FMXXV_BluffBody.xacro')
     robot_state_publisher_node = launch_ros.actions.Node(
         package='robot_state_publisher',
         executable='robot_state_publisher',
