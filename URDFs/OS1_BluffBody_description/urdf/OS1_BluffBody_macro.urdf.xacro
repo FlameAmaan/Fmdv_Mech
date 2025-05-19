@@ -1,0 +1,12 @@
+<?xml version="1.0" ?>
+<robot name="OS1_BluffBody" xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+<xacro:macro name="OS1_BluffBody" params="prefix">
+
+<xacro:include filename="$(find OS1_BluffBody_description)/urdf/materials.xacro" />
+<xacro:include filename="$(find OS1_BluffBody_description)/urdf/OS1_BluffBody.trans" />
+<xacro:include filename="$(find OS1_BluffBody_description)/urdf/OS1_BluffBody.gazebo" />
+<link name="${prefix}base_link"/>
+
+</xacro:macro>
+</robot>
